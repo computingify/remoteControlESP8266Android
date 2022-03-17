@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">PaddleBoatController</string>
+    <string name="_0">0°</string>
+    <string name="_0p">0%</string>
+    <string name="deg">°</string>
+    <string name="x">\"x = \"</string>
+    <string name="y">\" y = \"</string>
+    <string name="ConnectToPaddleBoatAccessPoint">Please connect you wifi to PaddleBoat access point</string>
+    <string name="AccessPointName">paddle</string>
+    <string name="ActivateWifi">Please activate your wifi on your phone</string>
+</resources>

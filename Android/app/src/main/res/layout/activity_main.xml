@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineLeft"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.10" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.30" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/fistLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.20" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/buttonLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/secondLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/thirdLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.65" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/fourthLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.80" />
+
+    <ImageView
+        android:id="@+id/wifiActivationSuccess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/buttonLine"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineText"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toTopOf="@+id/fistLine"
+        app:srcCompat="@drawable/success" />
+
+    <ImageView
+        android:id="@+id/wifiActivationFailure"
+        android:layout_width="48dp"
+        android:layout_height="43dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/wifiActivationSuccess"
+        app:layout_constraintEnd_toEndOf="@+id/wifiActivationSuccess"
+        app:layout_constraintStart_toStartOf="@+id/wifiActivationSuccess"
+        app:layout_constraintTop_toTopOf="@+id/wifiActivationSuccess"
+        app:srcCompat="@drawable/failure" />
+
+    <TextView
+        android:id="@+id/wifiActivation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:singleLine="false"
+        android:text=""
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/buttonLine"
+        app:layout_constraintStart_toStartOf="@+id/guidelineText"
+        app:layout_constraintTop_toTopOf="@+id/fistLine" />
+
+    <Button
+        android:id="@+id/connectionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Connection"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/secondLine"
+        app:layout_constraintStart_toStartOf="@+id/guidelineText"
+        app:layout_constraintTop_toTopOf="@+id/buttonLine" />
+
+    <ImageView
+        android:id="@+id/wifiConnectionSuccess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/thirdLine"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineText"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toTopOf="@+id/secondLine"
+        app:srcCompat="@drawable/success" />
+
+    <ImageView
+        android:id="@+id/wifiConnectionFailure"
+        android:layout_width="48dp"
+        android:layout_height="43dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/wifiConnectionSuccess"
+        app:layout_constraintEnd_toEndOf="@+id/wifiConnectionSuccess"
+        app:layout_constraintStart_toStartOf="@+id/wifiConnectionSuccess"
+        app:layout_constraintTop_toTopOf="@+id/wifiConnectionSuccess"
+        app:srcCompat="@drawable/failure" />
+
+    <TextView
+        android:id="@+id/paddleConnection"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/thirdLine"
+        app:layout_constraintStart_toStartOf="@+id/guidelineText"
+        app:layout_constraintTop_toTopOf="@+id/secondLine" />
+
+
+    <ImageView
+        android:id="@+id/boatLinkSuccess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/fourthLine"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineText"
+        app:layout_constraintStart_toStartOf="@+id/guidelineLeft"
+        app:layout_constraintTop_toTopOf="@+id/thirdLine"
+        app:srcCompat="@drawable/success" />
+
+    <ImageView
+        android:id="@+id/boatLinkFailure"
+        android:layout_width="48dp"
+        android:layout_height="43dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/boatLinkSuccess"
+        app:layout_constraintEnd_toEndOf="@+id/boatLinkSuccess"
+        app:layout_constraintStart_toStartOf="@+id/boatLinkSuccess"
+        app:layout_constraintTop_toTopOf="@+id/boatLinkSuccess"
+        app:srcCompat="@drawable/failure" />
+
+    <TextView
+        android:id="@+id/boatLink"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/fourthLine"
+        app:layout_constraintStart_toStartOf="@+id/guidelineText"
+        app:layout_constraintTop_toTopOf="@+id/thirdLine" />
+
+    <Button
+        android:id="@+id/test"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="test"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guidelineText"
+        app:layout_constraintTop_toTopOf="@+id/fourthLine" />
+</androidx.constraintlayout.widget.ConstraintLayout>
