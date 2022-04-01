@@ -32,6 +32,7 @@
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
 #include <string>
+#include <cstddef>         // std::size_t
 #include <stdexcept>
 
 /* Set these to your desired credentials. */
@@ -70,7 +71,6 @@ void handleAction(std::string actionStr) {
   }
   
   if (isReady) {
-    Serial.printf("Command is = %d\n", action);
     
     switch (action) {
       case FROWARD:
@@ -186,27 +186,38 @@ void setup() {
    wifiServer.begin();
 }
 
+// All command should be ended by # char
 void loop() {
-   //server.handleClient();
    WiFiClient client = wifiServer.available();
 
    if (client) {
-    Serial.println("Client present");
+    Serial.println("Client present, launch receiver loop");
     while (client.connected()) {
-      std::string str;
+      std::string actionStr;
       bool endOfLine = false;
-      while (client.available() > 0) {
-        char c = client.read();
-        if ('#' == c){
-          endOfLine = true;
+      int numberOfByteToRead = client.available();
+      if(0 < numberOfByteToRead) {
+        while (0 < numberOfByteToRead) {
+          char c = client.read();
+          actionStr.push_back(c);
+          numberOfByteToRead--;
         }
-        str.append(std::string(1, c));
+        // Search for the last end of line char "#"
+        std::size_t pos = actionStr.find_last_of("#");
+        if(std::string::npos != pos) {
+          // Remove the end of line char
+          actionStr = actionStr.substr(0, pos);
+          // Search for the last end of line char "#" because just after that's the last requested user action
+          pos = actionStr.find_last_of("#");
+          if(std::string::npos != pos) {
+            // Get all char after the end of line => that's the last action
+            actionStr = actionStr.substr(pos + 1);
+          } // even that's a commande with only one action
+          handleAction(actionStr);
+        }
       }
-      if(endOfLine) {
-        handleAction(str);
-        endOfLine = false;
-      }
-      delay(100);
+      // Add a delay to filter fast changing command and take only the lastest one
+      delay(250);
     }
     client.stop();
     Serial.println("Client disconnected");
